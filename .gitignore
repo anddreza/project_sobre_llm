@@ -1,0 +1,20 @@
+# Ignorar o ambiente virtual
+.venv/
+
+# Arquivos de cache do Python
+__pycache__/
+*.py[cod]
+
+# Arquivos de logs
+*.log
+
+
+# Ambientes virtuais criados pelo virtualenv, pipenv ou poetry
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Configurações locais
+*.env
