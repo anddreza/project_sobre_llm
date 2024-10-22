@@ -1,0 +1,7 @@
+/myenv/bin
+/myenv/lib
+/myenv/lib64
+/myenv/share
+
+# Configurações locais
+*.env

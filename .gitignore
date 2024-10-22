@@ -16,5 +16,6 @@ ENV/
 env.bak/
 venv.bak/
 
+
 # Configurações locais
 *.env
