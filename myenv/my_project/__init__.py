@@ -1,15 +1,17 @@
 import os
 
 from crewai import Agent, Task, Crew
-from langchain_core import *
+from langchain_groq import ChatGroq
 from crewai_tools import SerperDevTool
 from litellm import completion
 
 #load_dotenv('/content/drive/MyDriver/Colab Notebooks/IA/.env')
 from dotenv import load_dotenv
-load_dotenv('.env')
+load_dotenv('../.env')
+
 
 #from pyexpat.errors import messages
+os.getenv("GROQ_API_KEY")
 
 #Função para chamar o modelo
 response = completion(
@@ -20,7 +22,7 @@ response = completion(
 )
 print(response)
 
-#base_uri:"https://localhost:8080/"
+#base_uri:'https://localhost:8080/'
 
 #Definição do Agente "Pesquisador de Mercado"
 market_researcher = Agent(
@@ -90,16 +92,15 @@ task_enterpreneur = Task(
 #Criação do grupo de agentes
 crew = Crew(
 	agents=[market_researcher, enterpreneur_agent],
-	task=[task_market_researcher, task_enterpreneur],
+	tasks=[task_market_researcher, task_enterpreneur],
 	verbose=True,
 	max_rpm=25
 )
 
 result = crew.kickoff(
-	input={"ideia": "Nova empresa de tecnologia"}
+	input={"ideia": ""}
+	#ideia=""
 )
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
 
 
